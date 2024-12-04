@@ -14,7 +14,7 @@ def factorielle(n : int) -> int:
         factorielle(7)
 
     :param n: [int]
-    :return: factorielle de n
+    :return: [int] = factorielle de n
     """
     if n == 1:
         return  1
@@ -22,6 +22,15 @@ def factorielle(n : int) -> int:
         return n * factorielle(n-1)
 
 def epreuve_math_factorielle()->bool:
+    """
+    **Epreuve_math_factorielle**
+
+    Fonction qui éxécute l'épreuve mathématique factorielle
+
+    Demande la factorielle d'un entier entre 1 et 10 à un joueur et vérifie s'il a raison.
+
+    :return: [bool] optient une clé ou non
+    """
     k = randint(1,10)
     print(f"Épreuve de Mathématiques: Calculer la factorielle de {k}.")
     rep = saisi_secur('Votre réponse: ')
@@ -33,17 +42,42 @@ def epreuve_math_factorielle()->bool:
     return False
 
 def est_premier(n: int) -> bool:
+    """
+    **Est_premier**
+
+    Fonction qui vérifie si un entier est premier
+
+    :param n: [int]
+    :return: [bool] = si n est premier ou non
+    """
     if n <= 1:
         return False  #Les nombres <= 1 ne sont pas premiers
     div = [i for i in range(1, n + 1) if n % i == 0]
     return div == [1, n]
 
 def premier_plus_proche(n : int)-> int:
+    """
+    **Premier_plus_proche**
+
+    Fonction qui renvoie le nombre premier supérieur le plus proche d'un nombre entré
+
+    :param n: [int]
+    :return: [int] = nombre premier supérieur le plus proche de n
+    """
     while not(est_premier(n)):
         n+= 1
     return  n
 
 def epreuve_math_premier()->bool:
+    """
+    **Epreuve_math_premier**
+
+    Fonction qui éxécute l'épreuve mathématique premier
+
+    Demande l'entier premiers supérieur d'un entier entre 10 et 20 à un joueur et vérifie s'il a raison.
+
+    :return: [bool] optient une clé ou non
+    """
     k = randint(10,20)
     print(f"Épreuve de Mathématiques:  Trouver le nombre premier supérieur le plus proche de {k}.")
     rep = saisi_secur('Votre réponse: ')
@@ -55,6 +89,15 @@ def epreuve_math_premier()->bool:
     return False
 
 def epreuve_roulette_mathematique()-> bool:
+    """
+    **Epreuve_roulette_mathematique
+
+    Fonction qui éxécute l'épreuve roulette mathématique
+
+    Demande la somme/produit/soustraction de 5 entier entre 1 et 20 à un joueur et vérifie s'il a raison.
+
+    :return: [bool] optient une clé ou non
+    """
     liste = [randint(1,20) for i in range(5)]
     op = choice(["addition","soustraction","multiplication"])
     if op == "addition":
@@ -80,11 +123,17 @@ def epreuve_roulette_mathematique()-> bool:
     print(f"Faux, la bonne réponse était {juste}. Vous ne gagnez pas de clé.")
     return False
 
-def epreuve_math():
+def epreuve_math()-> bool:
+    """
+    **Epreuve_math**
+
+    Execute une des épreuves mathématique au hazard.
+
+    :return: [bool] = si le joueur à obtenue une clé à l'épreuve
+    """
     liste_epreuve = [epreuve_math_factorielle, epreuve_math_premier, epreuve_roulette_mathematique]
 
     epreuve = choice(liste_epreuve)
 
     return epreuve()
 
-print(epreuve_math())
