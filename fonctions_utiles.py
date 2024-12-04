@@ -13,4 +13,3 @@ def saisi_secur(texte : str, borne : bool = None, *, check : type = int, a : int
 
     return  rep
 
-
