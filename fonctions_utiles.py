@@ -23,7 +23,12 @@ def saisi_secur(texte : str, borne : bool = None, *, check : type = int, a : int
     if borne:
         while not (min(a, b) <= rep <= max(a, b)):
             print("Merci de rentrer une valeur valide")
-            rep = check(input(texte))
+            rep = saisi_secur(texte,borne,check = check,a = a,b=b)
 
     return  rep
 
+def info_matrice(matrice : list, position : tuple,*,valeur = None):
+    if valeur is None:
+        return  matrice[position[0]][position[1]]
+    else:
+        matrice[position[0]][position[1]] = valeur
