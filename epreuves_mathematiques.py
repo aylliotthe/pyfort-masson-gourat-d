@@ -90,7 +90,7 @@ def epreuve_math_premier()->bool:
 
 def epreuve_roulette_mathematique()-> bool:
     """
-    **Epreuve_roulette_mathematique
+    **Epreuve_roulette_mathematique**
 
     Fonction qui éxécute l'épreuve roulette mathématique
 
