@@ -3,7 +3,7 @@ from random import randint, choice
 from fonctions_utiles import saisi_secur
 
 
-def factorielle(n : int) -> int:
+def factorielle(n : int) -> int :
     """
     **Factorielle**
 
@@ -137,3 +137,5 @@ def epreuve_math()-> bool:
 
     return epreuve()
 
+if __name__ == "__main__":
+    epreuve_math()
