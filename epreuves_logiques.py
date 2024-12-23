@@ -105,5 +105,3 @@ def jeu_bataille_navale()->bool:
     else:
         print("Le maitre a gagné !")
         return False
-
-print(jeu_bataille_navale())

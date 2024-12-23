@@ -136,6 +136,3 @@ def epreuve_math()-> bool:
     epreuve = choice(liste_epreuve)
 
     return epreuve()
-
-if __name__ == "__main__":
-    epreuve_math()
