@@ -123,7 +123,7 @@ def epreuve_math()-> bool:
     """
     **Epreuve_math**
 
-    Execute une des épreuves mathématique au hazard.
+    Execute une des épreuves de mathématique au hazard.
 
     :return: [bool] = si le joueur à obtenue une clé à l'épreuve
     """
