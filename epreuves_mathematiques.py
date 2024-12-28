@@ -9,10 +9,6 @@ def factorielle(n : int) -> int :
 
     Fonction qui calcule la factorielle d'un entier
 
-    Exemple d'utilisation ::
-
-        factorielle(7)
-
     :param n: [int]
     :return: [int] = factorielle de n
     """

@@ -27,7 +27,17 @@ def saisi_secur(texte : str, borne : bool = None, *, check : type = int, a : int
 
     return  rep
 
-def info_matrice(matrice : list, position : tuple,*,valeur = None):
+def info_matrice(matrice : list, position : tuple,*,valeur = None)-> None or str or int:
+    """
+    **info_matrice**
+
+    Fonction qui renvoie la valeur d'une case dans une matrice ou la modifie
+
+    :param matrice: [list] = la matrice
+    :param position: [tuple] = tuple qui correspond à la position de la case
+    :param valeur: [Any] = valeur que prendra la case
+    :return: [Any] = la valeur de la case ou rien et modifie la case
+    """
     if valeur is None:
         return  matrice[position[0]][position[1]]
     else:
