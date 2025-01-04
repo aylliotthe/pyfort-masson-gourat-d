@@ -42,12 +42,29 @@ def info_matrice(matrice : list, position : tuple,*,valeur = None)-> None or str
     else:
         matrice[position[0]][position[1]] = valeur
 
-def introduction():
+def introduction() -> None:
+    """
+    **Introduction**
+
+    Affiche un message d'introduction expliquant les objectifs du jeu,
+    notamment la collecte de clés à travers des épreuves pour accéder à l'épreuve finale.
+
+    :return: None
+    """
     print("Bienvenue dans Fort Boyard")
     print("Vous devez remporter des clés en gagnant des épreuves.")
     print("Après avoir récupéré 3 clés vous accéderez à l'épreuve final.")
 
-def composer_equipe():
+def composer_equipe() -> list:
+    """
+    **Composer_equipe**
+
+    Permet à l'utilisateur de composer une équipe de joueurs avec des noms, professions,
+    et de désigner un leader. Si aucun leader n'est désigné, le premier joueur devient leader par défaut.
+
+    :return: [list] = Une liste de dictionnaires représentant chaque membre de l'équipe
+    """
+
     print("Vous allez maintenant composer votre équipe.")
     k = saisi_secur("Entrez le nombre de joueur, maximum 3 personnes : ",True, a= 1,b = 3)
 
@@ -70,11 +87,28 @@ def composer_equipe():
 
     return equipe
 
-def menu_epreuves():
+def menu_epreuves()-> int:
+    """
+    **Menu_epreuves**
+
+    Affiche un menu permettant de choisir parmi plusieurs épreuves et retourne le choix de l'utilisateur.
+
+    :return: [int] = Le numéro correspondant à l'épreuve choisie
+    """
     texte = "1. Épreuve de Mathématiques\n2. Épreuve de Logique\n3. Épreuve du hasard\n4. Énigme du Père Fouras\nChoix : "
     return saisi_secur(texte,True, a = 1,b= 4)
 
-def choisir_joueur(equipe) :
+def choisir_joueur(equipe : list) -> dict:
+    """
+    **Choisir_joueur**
+
+    Permet de sélectionner un joueur d'une équipe en affichant une liste numérotée avec leurs noms, professions et rôles
+    (Leader ou Membre).
+
+    :param equipe: [list] = Liste de dictionnaires représentant les joueurs
+
+    :return: [dict] = Le dictionnaire représentant le joueur sélectionné.
+    """
     texte = ""
     k = 1
     for joueur in equipe:

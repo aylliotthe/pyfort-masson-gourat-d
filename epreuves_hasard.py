@@ -1,7 +1,15 @@
 from random import choice, randint
 
 
-def bonneteau()-> bool:
+def bonneteau() -> bool:
+    """
+    **Bonneteau**
+
+    Simule un jeu de bonneteau où le joueur doit deviner sous quel bonneteau se cache une clé.
+    Le joueur dispose de deux essais pour réussir.
+
+    :return: [bool] = True si le joueur trouve la clé dans les deux essais, False sinon.
+    """
     goblets = ['A', 'B', 'C']
 
     print("Bienvenue au jeu du bonneteau !")
@@ -29,7 +37,15 @@ def bonneteau()-> bool:
     print(f"La clé se trouvait sous le bonneteau {cle}.")
     return False
 
-def jeu_lance_des()-> bool:
+def jeu_lance_des() -> bool:
+    """
+    **Jeu_lance_des**
+
+    Simule un jeu où le joueur et le maître lancent chacun deux dés sur trois manches maximum.
+    L'objectif est de faire un six pour remporter la clé.
+
+    :return: [bool] = True si le joueur gagne (fait un six), False sinon.
+    """
     nb_essai = 3
     for i in range(nb_essai):
         print(f'Il reste {nb_essai-i-1} essais restants.')
@@ -66,5 +82,3 @@ def epreuve_hasard()-> bool:
     epreuve = choice(liste_epreuve)
 
     return epreuve()
-
-epreuve_hasard()

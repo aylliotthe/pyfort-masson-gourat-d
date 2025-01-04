@@ -5,7 +5,16 @@ from random import choice
 from fonctions_utiles import saisi_secur
 
 
-def salle_De_tresor():
+def salle_De_tresor() -> None:
+    """
+    **Salle_De_tresor**
+
+    Simule l'épreuve finale de la salle du trésor dans Fort Boyard.
+    Les joueurs doivent deviner un mot-code en se basant sur une série d'indices.
+    Trois essais sont donnés, avec un indice supplémentaire révélé après chaque réponse incorrecte.
+
+    :return: None
+    """
     with open('data/indicesSalle.json', 'r', encoding= 'utf-8') as f:
         jeu_tv = load(f)
 
@@ -39,4 +48,3 @@ def salle_De_tresor():
         print("Bravo vous avez trouvé le mot code, vous remportez donc le jeu.")
     else:
         print("Vous n'avez pas trouvé le mot code, vous perdez donc le jeu.")
-
