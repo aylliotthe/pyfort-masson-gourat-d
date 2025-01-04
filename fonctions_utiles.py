@@ -12,7 +12,6 @@ def saisi_secur(texte : str, borne : bool = None, *, check : type = int, a : int
     :return: [int or str] = la valeur entrée par l'utilisateur conforme, de type de check
     """
 
-
     while True:
         try:
             rep = check(input(texte))
@@ -42,3 +41,50 @@ def info_matrice(matrice : list, position : tuple,*,valeur = None)-> None or str
         return  matrice[position[0]][position[1]]
     else:
         matrice[position[0]][position[1]] = valeur
+
+def introduction():
+    print("Bienvenue dans Fort Boyard")
+    print("Vous devez remporter des clés en gagnant des épreuves.")
+    print("Après avoir récupéré 3 clés vous accéderez à l'épreuve final.")
+
+def composer_equipe():
+    print("Vous allez maintenant composer votre équipe.")
+    k = saisi_secur("Entrez le nombre de joueur, maximum 3 personnes : ",True, a= 1,b = 3)
+
+    equipe = []
+    presence_leader = False
+    for i in range(k):
+        nom = saisi_secur(f'Entrez le nom du joueur {i+1} : ',check=str)
+        profession = saisi_secur(f'Entrez la profession de {nom} : ',check=str)
+        if not presence_leader :
+            leader = saisi_secur("Ce joueur est_il le leader, si oui entrez 1 sinon 0 : ", True, a = 0,b = 1 )
+            leader = True if leader == 1 else False
+            if leader:
+                presence_leader = True
+
+
+        equipe.append({'nom' : nom, "profession" : profession,'leader' : leader, 'cles_gagnees' : 0})
+
+    if not presence_leader:
+        equipe[0]['leader'] = True
+
+    return equipe
+
+def menu_epreuves():
+    texte = "1. Épreuve de Mathématiques\n2. Épreuve de Logique\n3. Épreuve du hasard\n4. Énigme du Père Fouras\nChoix : "
+    return saisi_secur(texte,True, a = 1,b= 4)
+
+def choisir_joueur(equipe) :
+    texte = ""
+    k = 1
+    for joueur in equipe:
+        if joueur['leader']:
+            role = 'Leader'
+        else :
+            role = 'Membre'
+        texte += f'{k}. {joueur["nom"]} ({joueur["profession"]}) - {role}\n'
+        k+=1
+
+    texte += 'Entrez le numéro du joueur : '
+    k= saisi_secur(texte, True, a=1, b=len(equipe))
+    return equipe[k-1]

@@ -45,4 +45,3 @@ def enigme_pere_fouras()-> bool:
 
     print(f"Faux, la bonne réponse était {juste}. Vous ne gagnez pas de clé.")
     return False
-
