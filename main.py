@@ -17,18 +17,28 @@ def jeu():
     :return: None
     """
     introduction()
+    print()
     equipe = composer_equipe()
+    print()
 
     nb_cle = 0
     liste_epreuve = [epreuve_math, jeu_bataille_navale, epreuve_hasard, enigme_pere_fouras]
-    while nb_cle != 0:
+    while nb_cle != 3:
+        print("Choisissez l'épreuve à laquelle vous voulez participer.")
         epreuve = menu_epreuves()
-        joueur = choisir_joueur(equipe)
-        resultat = liste_epreuve[epreuve-1]()
+        print()
 
+        print("Choisissez le joueur qui va participer.")
+        joueur = choisir_joueur(equipe)
+        print()
+
+        resultat = liste_epreuve[epreuve-1]()
+        print()
         if resultat:
             joueur["cles_gagnees"] += 1
             nb_cle +=1
 
     print("Vous avez obtenue 3 clés, vous passez à l'épreuve final.")
     salle_De_tresor()
+
+jeu()

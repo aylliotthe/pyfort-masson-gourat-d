@@ -100,7 +100,7 @@ def jeu_bataille_navale()->bool:
         joueur = suiv(joueur)
 
     if gagne(grille_tir_joueur):
-        print("Le joueur a gagné !")
+        print("Le joueur a gagné !\nVous remportez une clé.")
         return True
     else:
         print("Le maitre a gagné !")
