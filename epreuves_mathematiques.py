@@ -1,3 +1,12 @@
+"""
+Module : epreuves_mathematiques
+
+Ce module regroupe plusieurs épreuves mathématiques.
+Il inclut des épreuves de calcul de factorielle, de recherche de nombres premiers,
+et de calculs combinatoires, simulant une interaction avec le joueur pour résoudre ces défis.
+
+Auteurs : [Eliot Masson et Lorenzo Gourat]
+"""
 from random import randint, choice
 
 from fonctions_utiles import saisi_secur
@@ -7,7 +16,7 @@ def factorielle(n : int) -> int :
     """
     **Factorielle**
 
-    Fonction qui calcule la factorielle d'un entier
+    Fonction récursive qui calcule la factorielle d'un entier
 
     :param n: [int]
     :return: [int] = factorielle de n
@@ -27,14 +36,14 @@ def epreuve_math_factorielle()->bool:
 
     :return: [bool] optient une clé ou non
     """
-    k = randint(1,10)
-    print(f"Épreuve de Mathématiques: Calculer la factorielle de {k}.")
+    entier_choisi = randint(1,10)
+    print(f"Épreuve de Mathématiques: Calculer la factorielle de {entier_choisi}.")
     rep = saisi_secur('Votre réponse: ')
-    if rep == factorielle(k) :
+    if rep == factorielle(entier_choisi) :
         print("Correct! Vous gagnez une clé.")
         return True
 
-    print(f"Faux, la bonne réponse était {factorielle(k)}. Vous ne gagnez pas de clé.")
+    print(f"Faux, la bonne réponse était {factorielle(entier_choisi)}. Vous ne gagnez pas de clé.")
     return False
 
 def est_premier(n: int) -> bool:
@@ -96,6 +105,8 @@ def epreuve_roulette_mathematique()-> bool:
     """
     liste = [randint(1,20) for i in range(5)]
     op = choice(["addition","soustraction","multiplication"])
+
+    # Calcul de la réponse attendue
     if op == "addition":
         juste = 0
         for i in liste:
@@ -104,7 +115,7 @@ def epreuve_roulette_mathematique()-> bool:
         juste = liste[0]
         for i in liste[1:]:
             juste -= i
-    else:
+    else:  # Multiplication
         juste = 1
         for i in liste:
             juste *= i
